@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <navi />
     <router-view />
   </div>
 </template>
+
+<script>
+import Navi from '@/components/common/Navi';
+export default {
+  name: 'home',
+  components: {
+    Navi,
+  },
+};
+</script>
 
 <style>
 @import 'https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i';
