@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/LoginForm">로그인</router-link> |
+      <router-link to="/ReigsterForm">회원가입</router-link>
+      <router-link to="/Board">게시판</router-link>
     </div>
     <router-view />
   </div>
