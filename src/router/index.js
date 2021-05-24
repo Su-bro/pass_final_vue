@@ -17,6 +17,7 @@ import Exhibition from "@/components/culture/exhibition/Exhibition.vue"
 import Festival from "@/components/culture/festival/Festival.vue"
 import FestivalItem from "@/components/culture/festival/FestivalItem.vue"
 
+import CultureMap from "../views/CultureMap.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -99,8 +100,14 @@ const routes = [
     path: '/FestivalItem',
     name: 'FestivalItem',
     component: FestivalItem,
-  }
+  },
+  {
   
+    path: "/CultureMap",
+    name: "CultureMap",
+    component : CultureMap,
+  }
+
 ];
 
 const router = new VueRouter({
