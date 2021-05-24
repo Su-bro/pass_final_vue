@@ -135,7 +135,7 @@
                     <ul class="navbar-nav ml-xl-auto">
                       <li class="nav-item dropdown mega-menu mega-menu--wide">
                         <a
-                          href="#"
+                          href="/"
                           class="nav-link"
                           id="first-dropdown"
                           aria-haspopup="true"
@@ -145,7 +145,7 @@
                       </li>
                       <li class="nav-item dropdown mega-menu mega-menu--wide">
                         <a
-                          href="#"
+                          href="/"
                           class="nav-link"
                           id="first-dropdown"
                           aria-haspopup="true"
@@ -156,7 +156,7 @@
                       </li>
                       <li class="nav-item dropdown mega-menu mega-menu--wide">
                         <a
-                          href="#"
+                          href="/CultureMap"
                           class="nav-link"
                           id="second-dropdown"
                           aria-haspopup="true"
