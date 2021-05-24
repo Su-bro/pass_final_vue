@@ -1,5 +1,5 @@
 <template>
-  <div class="regist">
+  <div class="regist container-fluid">
     <h1 class="underline">글쓰기</h1>
     <div class="regist_form">
         <label for="title">작성자</label>
@@ -8,9 +8,9 @@
         <input type="text" id="title" name="title" v-model="title" ref="title" /><br />
         <label for="contents">내용</label><br />
         <textarea id="contents" name="contents" v-model="contents" ref="contents" cols="35" rows="5"></textarea><br />
-        <button v-if="type == 'create'" @click="checkValue">등록</button>
-        <button v-else @click="checkValue">수정</button>
-        <button @click="moveList">목록</button>
+        <button v-if="type == 'create'" @click="checkValue" class="btn btn-outline-secondary">등록</button>
+        <button v-else @click="checkValue" class="btn btn-outline-secondary">수정</button>
+        <button @click="moveList" class="btn btn-outline-secondary">목록</button>
     </div>
   </div>
 </template>
@@ -34,7 +34,7 @@ export default {
   },
   created() {
     const no = this.$route.params.no;
-      this.writer="로그인 한 유저";
+      this.writer=this.$store.state.member.userid;
     if (this.type === "modify") {
       http.get(`/api/board/`+no).then(({ data }) => {
         this.board=data;

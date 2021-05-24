@@ -8,7 +8,7 @@
       "
     >
       <!-- breadcrumb end  -->
-      <div class="container">
+      <div class="container" style="height:50">
         <div class="row justify-content-lg-center">
           <div class="col-lg-8 text-center pv-20">
             <h2 class="title">
@@ -21,19 +21,37 @@
       </div>
     </div>
     <!-- banner end -->
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <!--그냥 간지로 일단 했놨음 -->
+     <p></p>
+        <b-carousel
+    id="carousel-fade"
+    style="text-shadow: 0px 0px 2px #000"
+    fade
+    indicators
+    img-width="1024"
+    img-height="280"
+  >
+    <b-carousel-slide
+      caption="First slide"
+      img-src="https://picsum.photos/1024/480/?image=10"
+    >
+    </b-carousel-slide>
+    <b-carousel-slide
+      caption="Second Slide"
+      img-src="https://picsum.photos/1024/480/?image=12"
+    ></b-carousel-slide>
+    <b-carousel-slide
+      caption="Third Slide"
+      img-src="https://picsum.photos/1024/480/?image=22"
+    ></b-carousel-slide>
+  </b-carousel>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
-
 export default {
   name: 'Home',
-  components: {
-    HelloWorld,
-  },
+  
 };
 </script>

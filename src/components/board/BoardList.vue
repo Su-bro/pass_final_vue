@@ -2,9 +2,9 @@
   <div>
     <h1 class="underline">게시판</h1>
 
-    <div v-if="boards.length">
-      <b-row class="justify-content-md-center">
-        <table id="board-list" class="table table-striped col-md-8">
+    <div v-if="boards.length" class="container-fluid ">
+      <div class="container-fluid ">
+        <table id="board-list" class="table table-striped col-md-8" style="margin: 0 auto">
           <colgroup>
             <col style="width: 5%" />
             <col style="width: 65%" />
@@ -30,9 +30,18 @@
             />
           </tbody>
         </table>
-      </b-row>
+
+        <b-pagination
+        v-model="boardPageNav.currentPage"
+        :total-rows="boardPageNav.totalCount"
+        :per-page="boardPageNav.naviSize"
+        aria-controls="board_table"
+        align="center"
+        @page-click="pageMove"
+          />
+      </div>
       <div style="text-align: center">
-        <button @click="CreateBoard">글쓰기</button>
+        <button class="btn btn-outline-secondary" @click="CreateBoard">글쓰기</button>
       </div>
     </div>
     <div v-else class="text-center">게시글이 없습니다.</div>
@@ -40,27 +49,51 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import BoardListItem from '@/components/board/BoardListItem.vue';
 // import http from '@/util/http-common';
-
+import { mapActions, mapState } from "vuex";
 export default {
   name: 'boardList',
   data() {
-    return {};
+    return {
+          spp: 10,
+          pg: 1,
+          params:{},
+        };
+  },
+  computed:{
+      ...mapState(["boards", "boardPageNav", "key", "word", "login", "member"]),
   },
   created() {
-    this.$store.dispatch('getBoardList');
+    this.getdata();
   },
   components: {
     BoardListItem,
   },
-  computed: {
-    ...mapState(['boards']),
+   watch: {
+    // 라우트가 변경되면 메소드를 다시 호출됩니다.
+    $route: "getdata",
   },
   methods: {
     CreateBoard() {
-      this.$router.push({ name: 'CreateBoard' });
+      if(this.$store.state.login==1){
+        alert("로그인 해주세요")
+      }else{
+        this.$router.push({ name: 'CreateBoard' });
+      }
+    },
+    ...mapActions(["getBoardList"]),
+    getdata() {
+      this.getBoardList(this.$store.getters.requestParams);
+      console.log(this.boards);
+      console.log(this.boardPageNav.currentPage);
+      console.log(this.boardPageNav.totalCount);
+      console.log(this.boardPageNav.naviSize);
+    },
+    pageMove: function (button, page) {
+      this.boardPageNav.currentPage = page;
+      const params = { key: this.key, word: this.word, pg: page };
+      this.getBoardList(params);
     },
   },
 };

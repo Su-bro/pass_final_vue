@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-fluid">
       <write-form type="create"/>
   </div>
 </template>
