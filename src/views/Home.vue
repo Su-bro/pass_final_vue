@@ -25,21 +25,23 @@
     <p></p>
     <b-carousel
       id="carousel-fade"
-      style="text-shadow: 0px 0px 2px #000"
+      style="text-shadow: 1px 1px 2px #333;"
       fade
       indicators
-      img-width="1024"
-      img-height="280"
+      img-width="800"
+      img-height="100"
+      
     >
-      <b-carousel-slide caption="First slide" img-src="https://picsum.photos/1024/480/?image=10">
+      <b-carousel-slide caption="First slide" img-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsEnNP9sWOXAo0ZWkMQGFs6yKw8yktco-7Jg&usqp=CAU">
       </b-carousel-slide>
       <b-carousel-slide
         caption="Second Slide"
-        img-src="https://picsum.photos/1024/480/?image=12"
+        img-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWCsB4f2UYTLtE6CY7jfvlMLS03x1FYxVA2Q&usqp=CAU"
       ></b-carousel-slide>
       <b-carousel-slide
         caption="Third Slide"
-        img-src="https://picsum.photos/1024/480/?image=22"
+        style="text:white"
+        img-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgZZ0RLi2qURi5U409htiz7pZYSMIE64xu9g&usqp=CAU"
       ></b-carousel-slide>
     </b-carousel>
   </div>
