@@ -1,8 +1,12 @@
 <template>
   <tr>
-    <td>{{ no }}</td>
+    <td id="num">{{ no }}</td>
     <td>
-      <router-link  :to="`Board/${no}`">{{ title }}</router-link>
+      <router-link :to="`Board/${no}`" style="text-decoration: none; color: inherit">
+        <div id="post">
+          <span id="title">{{ title }}</span>
+        </div>
+      </router-link>
     </td>
     <td>
       {{ writer }}
@@ -14,17 +18,16 @@
 <script>
 import { mapState } from 'vuex';
 export default {
-  
   name: 'BoardListItem',
-  computed:{
-      ...mapState(["boards", "boardPageNav", "key", "word", "login", "member"]),
+  computed: {
+    ...mapState(['boards', 'boardPageNav', 'key', 'word', 'login', 'member']),
   },
   props: {
-    no: Number,
-    title: String,
-    writer: String,
-    date: Number,
-    board: Object,
+    no: '',
+    title: '',
+    writer: '',
+    date: '',
+    board: '',
   },
   data() {
     return {};
@@ -44,5 +47,16 @@ export default {
 }
 .mouse-over-bgcolor {
   background-color: lightblue;
+}
+td {
+  font-size: 16px;
+}
+#post {
+  text-align: left;
+}
+#num {
+  padding: 0%;
+  margin: 0%;
+  width: 10px;
 }
 </style>

@@ -1,16 +1,15 @@
 <template>
   <div class="container">
-    
     <h1 class="underline">게시판</h1>
-    
+
     <div v-if="boards.length" class="container">
-      <div class="container-fluid ">
-        <table id="board-list" class="table table-striped col-md-8" style="margin: 0 auto">
+      <div class="container">
+        <table id="board-list" class="table table-hover">
           <colgroup>
-            <col style="width: 5%" />
-            <col style="width: 65%" />
-            <col style="width: 20%" />
             <col style="width: 10%" />
+            <col style="width: 40%" />
+            <col style="width: 25%" />
+            <col style="width: 25%" />
           </colgroup>
           <thead>
             <tr>
@@ -33,19 +32,18 @@
         </table>
 
         <b-pagination
-        v-model="boardPageNav.currentPage"
-        :total-rows="boardPageNav.totalCount"
-        :per-page="boardPageNav.naviSize"
-        aria-controls="board_table"
-        align="center"
-        @page-click="pageMove"
-          />
+          v-model="boardPageNav.currentPage"
+          :total-rows="boardPageNav.totalCount"
+          :per-page="boardPageNav.naviSize"
+          aria-controls="board_table"
+          align="center"
+          @page-click="pageMove"
+        />
       </div>
-      
+
       <div style="text-align: center">
         <button class="btn btn-outline-secondary" @click="CreateBoard">글쓰기</button>
       </div>
-      
     </div>
     <div v-else class="text-center">게시글이 없습니다.</div>
   </div>
@@ -54,20 +52,20 @@
 <script>
 import BoardListItem from '@/components/board/BoardListItem.vue';
 // import http from '@/util/http-common';
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState } from 'vuex';
 export default {
   name: 'boardList',
   data() {
     return {
-          spp: 10,
-          pg: 1,
-          params:{},
-          key:'',
-          word:'',
-        };
+      spp: 10,
+      pg: 1,
+      params: {},
+      key: '',
+      word: '',
+    };
   },
-  computed:{
-      ...mapState(["boards", "boardPageNav", "key", "word", "login", "member"]),
+  computed: {
+    ...mapState(['boards', 'boardPageNav', 'key', 'word', 'login', 'member']),
   },
   created() {
     this.getdata();
@@ -75,19 +73,19 @@ export default {
   components: {
     BoardListItem,
   },
-   watch: {
+  watch: {
     // 라우트가 변경되면 메소드를 다시 호출됩니다.
-    $route: "getdata",
+    $route: 'getdata',
   },
   methods: {
     CreateBoard() {
-      if(this.$store.state.login==1){
-        alert("로그인 해주세요")
-      }else{
+      if (this.$store.state.login == 1) {
+        alert('로그인 해주세요');
+      } else {
         this.$router.push({ name: 'CreateBoard' });
       }
     },
-    ...mapActions(["getBoardList"]),
+    ...mapActions(['getBoardList']),
     getdata() {
       this.getBoardList(this.$store.getters.requestParams);
       console.log(this.boards);
@@ -100,7 +98,6 @@ export default {
       const params = { key: this.key, word: this.word, pg: page };
       this.getBoardList(params);
     },
-   
   },
 };
 </script>
