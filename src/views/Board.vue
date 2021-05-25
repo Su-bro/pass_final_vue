@@ -6,7 +6,6 @@
 
 <script>
 import BoardList from '@/components/board/BoardList.vue';
-
 export default {
   name: 'Board',
   components: {
