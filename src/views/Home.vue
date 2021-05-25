@@ -25,23 +25,22 @@
     <p></p>
     <b-carousel
       id="carousel-fade"
-      style="text-shadow: 1px 1px 2px #333;"
+      style="text-shadow: 1px 1px 2px #333"
       fade
       indicators
       img-width="800"
       img-height="100"
-      
     >
-      <b-carousel-slide caption="First slide" img-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsEnNP9sWOXAo0ZWkMQGFs6yKw8yktco-7Jg&usqp=CAU">
+      <b-carousel-slide
+        img-src="https://dt40dm21pj8em.cloudfront.net/uploads/froala/file/6819/1569215127116.png"
+      >
       </b-carousel-slide>
       <b-carousel-slide
-        caption="Second Slide"
-        img-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWCsB4f2UYTLtE6CY7jfvlMLS03x1FYxVA2Q&usqp=CAU"
+        img-src="https://www.diyanar.com/wp-content/uploads/2019/05/wall-art-2852231_960_720.jpg"
       ></b-carousel-slide>
       <b-carousel-slide
-        caption="Third Slide"
-        style="text:white"
-        img-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgZZ0RLi2qURi5U409htiz7pZYSMIE64xu9g&usqp=CAU"
+        style="text: white"
+        img-src="https://www.jejusi.go.kr/storage/files/buriburi/20190109/1547015439479_ee5fcd19758b43dda679430ad94db043.jpg"
       ></b-carousel-slide>
     </b-carousel>
   </div>
