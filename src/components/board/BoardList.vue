@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="container">
+    
     <h1 class="underline">게시판</h1>
-
-    <div v-if="boards.length" class="container-fluid ">
+    
+    <div v-if="boards.length" class="container">
       <div class="container-fluid ">
         <table id="board-list" class="table table-striped col-md-8" style="margin: 0 auto">
           <colgroup>
@@ -40,9 +41,11 @@
         @page-click="pageMove"
           />
       </div>
+      
       <div style="text-align: center">
         <button class="btn btn-outline-secondary" @click="CreateBoard">글쓰기</button>
       </div>
+      
     </div>
     <div v-else class="text-center">게시글이 없습니다.</div>
   </div>
@@ -59,6 +62,8 @@ export default {
           spp: 10,
           pg: 1,
           params:{},
+          key:'',
+          word:'',
         };
   },
   computed:{
@@ -95,6 +100,7 @@ export default {
       const params = { key: this.key, word: this.word, pg: page };
       this.getBoardList(params);
     },
+   
   },
 };
 </script>

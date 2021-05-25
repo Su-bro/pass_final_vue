@@ -21,8 +21,9 @@
           </tr>
         </table>
       </b-row>
+      
       <b-row class="justify-content-md-center">
-        <div class="text-center">
+        <div class="text-center" v-if="this.member.userid==board.writer">
           <router-link to="/Board"><button class="btn btn-secondary">목록</button></router-link>
           <router-link :to="'/modify/' + board.no"
             ><button class="btn btn-secondary">수정</button></router-link
@@ -31,6 +32,9 @@
             ><button class="btn btn-secondary">삭제</button></router-link
           >
         </div>
+        <div class="text-center" v-else>
+          <router-link to="/Board"><button class="btn btn-secondary">목록</button></router-link>
+        </div>
       </b-row>
     </b-container>
   </div>
@@ -38,8 +42,12 @@
 
 <script>
 import http from '@/util/http-common';
+import { mapState } from 'vuex';
 export default {
   name: 'BoardDetail',
+  computed:{
+      ...mapState(["boards", "boardPageNav", "key", "word", "login", "member"]),
+  },
   data() {
     return {
       board: {},

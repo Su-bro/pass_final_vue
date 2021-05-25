@@ -1,10 +1,10 @@
 <template>
     <b-container>
+        <button class="btn btn-outline-success" @click="moveToList">돌아가기</button>
         <b-row>
             <b-col cols="5">
-                <img :src="seoulfestivalitem.사진" style="width:100% height:100%">
-            </b-col>
-            
+                <img :src="seoulfestivalitem.사진" style="height:100%; width: 100%;">
+            </b-col>            
             <b-col cols="5">
                 <table class="table table-border" id="info">
                     <tr>
@@ -61,12 +61,9 @@ export default {
         }
     },
     methods: {
-    removeHTML(text) {
-      text = text.replace(/<br\/>/ig, "\n");
-      text = text.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "");
-      console.log(text);
-      return text;
-    }
+    moveToList(){
+            this.$router.push("/Festival")
+        }
   },
     
 }

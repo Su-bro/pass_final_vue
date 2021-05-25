@@ -50,6 +50,7 @@ export default new Vuex.Store({
     SET_PERFORMANCE_DB(state, data) {
       state.performancedb = data;
     },
+
     SET_PERFORMANCE_ITEM_(state, data) {
       state.performanceitem = data;
       console.log(state.performanceitem);

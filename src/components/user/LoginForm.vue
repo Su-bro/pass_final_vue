@@ -16,7 +16,7 @@
             <button type="button" @click="checkValue" class="btn btn-outline-primary btn-lg btn-block">로그인</button>
 
             <p class="forgot-password text-right mt-2 mb-4">
-                <router-link to="/">회원이 아니신가요?</router-link>
+                <router-link type="regist" to="/MemberRegist">회원이 아니신가요?</router-link>
             </p>
 
         </form>
