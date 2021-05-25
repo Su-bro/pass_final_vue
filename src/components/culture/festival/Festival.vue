@@ -4,7 +4,7 @@
         <div class="row justify-content-lg-center">
           <div class="col-lg-8 text-center pv-20">
             <h2 class="title">
-              <strong>축제</strong>
+              <strong>축 제</strong>
             </h2>
             <div class="separator"></div>
             
@@ -27,7 +27,32 @@
             @click.native="click(data)"
             />
     </vueper-slides>
+    
+    <div class="search_bar container" style="text-align:center; margin-top:30px">
+      <div style="display:inline-block" >
+          <div style="float:left; margin-left:10px">
+            <b-form-select v-model="type2" :options="options2"></b-form-select>
+          </div>
+          <div style="float:left; margin-left:10px">
+            <b-form-input v-model="key" placeholder="검색어를 입력하세요"></b-form-input>
+          </div>
+          
+          <button type="button" style="float:left; margin-left:10px" class="btn btn-primary" @click.prevent="search">검색</button>     
+      </div>
+    </div>
+    
+    
+          
 
+    <div class="container">
+         <b-card-group>  
+          <find-list-item
+          v-for="(data, index) in this.finds" :key="index"
+          :data='data'
+          @click.native="click(data)"
+          />
+        </b-card-group>
+    </div>
 
 
 
@@ -38,11 +63,14 @@
 <script>
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import{ mapActions, mapState } from 'vuex'
+import FindListItem from '@/components/culture/festival/FindListItem.vue';
 import 'vueperslides/dist/vueperslides.css'
   export default {
-    components: { VueperSlides, VueperSlide },
+    components: { VueperSlides, VueperSlide,FindListItem },
     mounted(){
       this.init();
+      this.finds=this.datas;
+      this.temps=this.datas;
   },
   computed:{
       ...mapState({
@@ -56,11 +84,47 @@ import 'vueperslides/dist/vueperslides.css'
     click(data){
       this.$store.dispatch('SetSeoulFestival',data);
       this.$router.push('FestivalItem');
-    }
+    },
+    search(){
+      console.log("검색");
+      this.finds=[];
+      if(this.type2=="축제명"){
+        for (const idx in this.temps) {
+          // console.log(this.temps[idx].codename);
+          if(this.temps[idx].축제명.includes(this.key)){
+            this.finds.push(this.temps[idx]);
+          }
+        }
+        console.log(this.finds);
+      }else if(this.type2=="주소"){
+        for (const idx in this.temps) {
+          // console.log(this.temps[idx].title);
+          // console.log(this.temps[idx].codename);
+          if(this.temps[idx].소재지도로명주소.includes(this.key)){
+            this.finds.push(this.temps[idx]);
+          }
+        }
+      }else{
+        this.finds=this.datas;
+      }
+      this.type1=''
+      this.type2=''
+      this.key=''
+
+    },
   },
     data() {
       return {
-        
+        type1: '',
+        type2: '',
+        key:'',
+        finds:[],
+        temps:[],
+        options2: [
+          { value: null, text: '검색 키워드' },
+          { value: '축제명', text: '축제명' },
+          { value: '주소', text: '주소' },
+        ]
       }
     },
    

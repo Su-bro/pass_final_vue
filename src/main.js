@@ -10,9 +10,11 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueCarousel from '@chenfengyuan/vue-carousel';
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 
+// import style (>= Swiper 6.x)
 Vue.component(VueCarousel.name, VueCarousel);
-
+Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
 Vue.use(BootstrapVue)
 // Set up FontAwesome 
 faLibrary.add(faHome, faSearch, faPlus)

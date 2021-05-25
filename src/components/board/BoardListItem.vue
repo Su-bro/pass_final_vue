@@ -2,7 +2,7 @@
   <tr>
     <td>{{ no }}</td>
     <td>
-      <router-link :to="`Board/${no}`">{{ title }}</router-link>
+      <router-link  :to="`Board/${no}`">{{ title }}</router-link>
     </td>
     <td>
       {{ writer }}
@@ -12,8 +12,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
+  
   name: 'BoardListItem',
+  computed:{
+      ...mapState(["boards", "boardPageNav", "key", "word", "login", "member"]),
+  },
   props: {
     no: Number,
     title: String,

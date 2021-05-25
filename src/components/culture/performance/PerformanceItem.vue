@@ -1,7 +1,8 @@
 <template>
-    <div class="container">
+    <div class="container" style="test-align:center">
+        <button class="btn btn-outline-success" @click="moveToList">돌아가기</button>
         <div class="box1">
-            <img :src="performanceitem.main_img">
+            <img :src="performanceitem.main_img" >
         </div>
         <div class="box2">
             <table class="table table-border" id="info">
@@ -35,7 +36,9 @@
                 </tr>
                 
             </table>
+            
         </div>
+        
     </div>
 </template>
 
@@ -46,7 +49,11 @@ export default {
         ...mapState(['performanceitem']),
     },
     
-
+    methods:{
+        moveToList(){
+            this.$router.push("/Performance")
+        }
+    },
     data() {
         return {
             

@@ -1,5 +1,6 @@
 <template>
     <b-container>
+        <button class="btn btn-outline-success" @click="moveToList">돌아가기</button>
         <b-row>
             <b-col cols="5">
                 <img :src="seoulexhibitionitem.dp_main_img" >
@@ -58,12 +59,9 @@ export default {
         }
     },
     methods: {
-    removeHTML(text) {
-      text = text.replace(/<br\/>/ig, "\n");
-      text = text.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "");
-      console.log(text);
-      return text;
-    }
+   moveToList(){
+            this.$router.push("/Exhibition")
+        }
   },
     
 }
