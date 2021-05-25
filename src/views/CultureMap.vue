@@ -272,6 +272,7 @@ export default {
       navigator.geolocation.getCurrentPosition(function (position) {
         // lat = position.coords.latitude; // 위도
         // lng = position.coords.longitude; // 경도
+        console.log(position.coords.latitude);
         map.panTo(new kakao.maps.LatLng(x, y));
         // 마커와 인포윈도우를 표시합니다
       });
