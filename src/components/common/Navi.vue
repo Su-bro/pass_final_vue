@@ -36,32 +36,34 @@
       </div>
     </div>
 
-    <b-navbar toggleable="lg" type="light" variant="faded">
-      <b-navbar-brand href="/">
-        <img
-          id="logo_img"
-          src="@/resources/images/logo.jpg"
-          width="160"
-          alt="The SSAFY"
-          class="mt-3"
-      /></b-navbar-brand>
+    <div class="container-fluid" style="width: 80%">
+      <b-navbar toggleable="lg" type="light" variant="faded">
+        <b-navbar-brand href="/">
+          <img
+            id="logo_img"
+            src="@/resources/images/logo.jpg"
+            width="160"
+            alt="The SSAFY"
+            class="mt-3"
+        /></b-navbar-brand>
 
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item href="/">홈</b-nav-item>
-          <b-nav-item href="/CultureMap">문화지도</b-nav-item>
-          <b-nav-item href="/Board">게시판</b-nav-item>
-          <!-- Navbar dropdowns -->
-          <b-nav-item-dropdown text="문화행사" right>
-            <b-dropdown-item href="/Performance">공연</b-dropdown-item>
-            <b-dropdown-item href="/Exhibition">전시</b-dropdown-item>
-            <b-dropdown-item href="/Festival">축제</b-dropdown-item>
-          </b-nav-item-dropdown>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+        <b-collapse id="nav-collapse" is-nav>
+          <!-- Right aligned nav items -->
+          <b-navbar-nav class="ml-auto">
+            <b-nav-item href="/">홈</b-nav-item>
+            <b-nav-item href="/CultureMap">문화지도</b-nav-item>
+            <b-nav-item href="/Board">게시판</b-nav-item>
+            <!-- Navbar dropdowns -->
+            <b-nav-item-dropdown text="문화행사" right>
+              <b-dropdown-item href="/Performance">공연</b-dropdown-item>
+              <b-dropdown-item href="/Exhibition">전시</b-dropdown-item>
+              <b-dropdown-item href="/Festival">축제</b-dropdown-item>
+            </b-nav-item-dropdown>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
+    </div>
   </div>
 </template>
 
