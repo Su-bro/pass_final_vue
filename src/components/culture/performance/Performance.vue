@@ -29,7 +29,7 @@
     </vueper-slides>
     
     <div class="search_bar container" style="text-align:center; margin-top:30px">
-      <div style="display:inline-block" >
+      <div style="display:inline-block"  >
           <div style="float:left; margin-left:10px">
             <b-form-select v-model="type1" :options="options1" ></b-form-select>
           </div>
@@ -40,9 +40,12 @@
             <b-form-input v-model="key" placeholder="검색어를 입력하세요"></b-form-input>
           </div>
           
-          <button type="button" style="float:left; margin-left:10px" class="btn btn-primary" @click.prevent="search">검색</button>     
-         
+          <div> 
+            <button type="button" style="margin-left:10px" class="btn btn-outline-primary" @click.prevent="search">검색</button>     
+            <button type="button" style="margin-left:10px" class="btn btn-outline-primary" @click.prevent="getList">모든 목록</button>     
+          </div>
       </div>
+      
     </div>
     
     
@@ -143,6 +146,9 @@ import 'vueperslides/dist/vueperslides.css'
       }
       
     },
+    getList(){
+      this.finds=this.datas;
+    }
   },
     data() {
       return {

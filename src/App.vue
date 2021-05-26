@@ -2,15 +2,19 @@
   <div id="app">
     <navi />
     <router-view />
+    <div>
+      <main-footer />
+    </div>
   </div>
 </template>
 
 <script>
 import Navi from '@/components/common/Navi';
+import MainFooter from '@/components/common/MainFooter';
 export default {
   name: 'home',
   components: {
-    Navi,
+    Navi,MainFooter
   },
 };
 </script>
