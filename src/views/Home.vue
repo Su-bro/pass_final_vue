@@ -21,6 +21,7 @@
       </div>
     </div>
     <!-- banner end -->
+
     <!--그냥 간지로 일단 했놨음 -->
     <p></p>
     <b-carousel
