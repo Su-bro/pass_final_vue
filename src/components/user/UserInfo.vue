@@ -27,7 +27,7 @@
                             </strong>
                         </td>
                         <td class="text-primary">
-                            {{member.name}}     
+                            {{member.username}}     
                         </td>
                     </tr>
                    
