@@ -17,7 +17,7 @@
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="/RegistForm">회원이 아니신가요?</a>
+      <a class="underlineHover" href="/RegisterForm">회원이 아니신가요?</a>
     </div>
 
   </div>
