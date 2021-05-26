@@ -29,9 +29,9 @@
     </vueper-slides>
     
     <div class="search_bar container" style="text-align:center; margin-top:30px">
-      <div style="display:inline-block" >
+      <div style="display:inline-block"  >
           <div style="float:left; margin-left:10px">
-            <b-form-select v-model="type1" :options="options1"></b-form-select>
+            <b-form-select v-model="type1" :options="options1" ></b-form-select>
           </div>
           <div style="float:left; margin-left:10px">
             <b-form-select v-model="type2" :options="options2"></b-form-select>
@@ -40,9 +40,12 @@
             <b-form-input v-model="key" placeholder="검색어를 입력하세요"></b-form-input>
           </div>
           
-          <button type="button" style="float:left; margin-left:10px" class="btn btn-primary" @click.prevent="search">검색</button>     
-         
+          <div> 
+            <button type="button" style="margin-left:10px" class="btn btn-outline-primary" @click.prevent="search">검색</button>     
+            <button type="button" style="margin-left:10px" class="btn btn-outline-primary" @click.prevent="getList">모든 목록</button>     
+          </div>
       </div>
+      
     </div>
     
     
@@ -99,8 +102,9 @@ import 'vueperslides/dist/vueperslides.css'
     },
     search(){
       console.log("검색");
+      console.log(this.type1);
       this.finds=[];
-      if(this.type2=="제목"){
+      if(this.type2=="제목" && this.type1!=null){
         for (const idx in this.temps) {
           // console.log(this.temps[idx].codename);
           if(this.temps[idx].title.includes(this.key) && this.temps[idx].codename==this.type1){
@@ -108,7 +112,7 @@ import 'vueperslides/dist/vueperslides.css'
           }
         }
         console.log(this.finds);
-      }else if(this.type2=="내용"){
+      }else if(this.type2=="내용" && this.type1!=null){
         for (const idx in this.temps) {
           // console.log(this.temps[idx].title);
           // console.log(this.temps[idx].codename);
@@ -116,14 +120,35 @@ import 'vueperslides/dist/vueperslides.css'
             this.finds.push(this.temps[idx]);
           }
         }
-      }else{
+      }else if(this.type1==null && this.type2!=null){
+          console.log(this.type1);
+            if(this.type2=="제목"){
+            for (const idx in this.temps) {
+              // console.log(this.temps[idx].codename);
+              if(this.temps[idx].title.includes(this.key)){
+                this.finds.push(this.temps[idx]);
+              }
+            }
+            console.log(this.finds);
+          }else if(this.type2=="내용"){
+            for (const idx in this.temps) {
+              // console.log(this.temps[idx].title);
+              // console.log(this.temps[idx].codename);
+              if(this.temps[idx].program.includes(this.key)){
+                this.finds.push(this.temps[idx]);
+              }
+            }
+          }
+        
+      }
+      else{
         this.finds=this.datas;
       }
-      this.type1=''
-      this.type2=''
-      this.key=''
-
+      
     },
+    getList(){
+      this.finds=this.datas;
+    }
   },
     data() {
       return {

@@ -186,7 +186,8 @@ export default new Vuex.Store({
         end_date: d.end_date,
         title: d.title,
         program: d.program,
-        codename:d.codename,
+        codename: d.codename,
+        place:d.place,
         
       }))
       commit('SET_PERFORMANCE_DB',data)

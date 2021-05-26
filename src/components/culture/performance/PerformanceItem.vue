@@ -1,12 +1,13 @@
 <template>
-    <div class="container" style="test-align:center">
+    <b-container>
         <button class="btn btn-outline-success" @click="moveToList">돌아가기</button>
-        <div class="box1">
-            <img :src="performanceitem.main_img" >
-        </div>
-        <div class="box2">
-            <table class="table table-border" id="info">
-                <tr>
+        <b-row>
+            <b-col cols="5">
+                <img :src="performanceitem.main_img" style="height:100%; width: 100%;">
+            </b-col>            
+            <b-col cols="5">
+                <table class="table table-border" id="info">
+                    <tr>
                     <th>제목:</th>
                     <td>{{performanceitem.title}}</td>
                 </tr>
@@ -15,8 +16,8 @@
                     <td>{{performanceitem.program}}</td>
                 </tr>
                 <tr>
-                    <th>주최:</th>
-                    <td>{{performanceitem.org_name}}</td>
+                    <th>장소:</th>
+                    <td>{{performanceitem.place}}</td>
                 </tr>
                 <tr>
                     <th>분류:</th>
@@ -34,12 +35,10 @@
                     <th>페이지 바로가기:</th>
                     <td><a :href="performanceitem.org_link">바로가기</a></td>
                 </tr>
-                
-            </table>
-            
-        </div>
-        
-    </div>
+                </table>
+            </b-col>
+        </b-row>
+    </b-container>
 </template>
 
 <script>
